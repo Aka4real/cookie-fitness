@@ -21,10 +21,16 @@
   },
   "scripts": {
     "start": "expo start",
+    "dev": "concurrently -n \"BACKEND,EXPO\" -c \"blue,green\" \"npm --prefix backend start\" \"expo start\"",
+    "dev:backend": "npm --prefix backend start",
+    "dev:app": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build": "expo export -p web"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
 }
